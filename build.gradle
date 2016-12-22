@@ -26,3 +26,13 @@ dependencies {
     testRuntime group: 'cglib', name: 'cglib-nodep', version: '3.2.4'
     testRuntime group: 'org.slf4j', name: 'slf4j-nop', version: '1.7.22'
 }
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.example.calculator.RpnCalculator'
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+        configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
