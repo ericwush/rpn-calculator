@@ -25,7 +25,7 @@ public class CommandLineProcessor {
             .toJavaStream()
             .map(processInput())
             .reduce((first, second) -> second)
-            .orElseThrow(() -> new IllegalStateException("Something is wrong"))
+            .orElseThrow(() -> new IllegalStateException("Unexpected empty stack"))
     );
   }
 
@@ -33,7 +33,8 @@ public class CommandLineProcessor {
     return maybeParsedInput -> {
       ParsedInput parsedInput = maybeParsedInput._1
           .orElseThrow(
-              () -> new IllegalArgumentException("position " + maybeParsedInput._2.toString() + ": invalid input"));
+              () -> new IllegalArgumentException("position " + (maybeParsedInput._2.intValue() + 1) + ": invalid input"));
+      parsedInput.setPosition(maybeParsedInput._2.intValue() + 1);
       return parsedInput.accept(processor);
     };
   }

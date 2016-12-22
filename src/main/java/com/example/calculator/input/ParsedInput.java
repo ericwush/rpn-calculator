@@ -7,4 +7,10 @@ import java.util.LinkedList;
 
 public interface ParsedInput {
   LinkedList<BigDecimal> accept(InputProcessor processor);
+
+  void setPosition(int position);
+
+  int getPosition();
+
+  String getName();
 }

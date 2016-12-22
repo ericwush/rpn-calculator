@@ -13,6 +13,7 @@ import com.example.calculator.process.CommandLineExecutor;
 import com.example.calculator.process.CommandLineListener;
 import com.example.calculator.process.CommandLineProcessor;
 import com.example.calculator.process.InputProcessor;
+import com.example.calculator.process.ResultViewer;
 import com.example.calculator.process.StackHistory;
 
 public class RpnCalculator {
@@ -29,7 +30,7 @@ public class RpnCalculator {
         new ClearOperatorParser());
     CommandLineProcessor commandLineProcessor = new CommandLineProcessor(new InputProcessor(StackHistory.getInstance()));
     CommandLineListener commandLineListener = new CommandLineListener();
-    commandLineListener.addObserver(new CommandLineExecutor(parser, commandLineProcessor));
+    commandLineListener.addObserver(new CommandLineExecutor(parser, commandLineProcessor, new ResultViewer()));
     new Thread(commandLineListener).start();
   }
 

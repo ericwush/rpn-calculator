@@ -3,6 +3,7 @@ package com.example.calculator.process;
 import com.example.calculator.input.ClearOperator;
 import com.example.calculator.input.DivisionOperator;
 import com.example.calculator.input.MultiplicationOperator;
+import com.example.calculator.input.ParsedInput;
 import com.example.calculator.input.SquareRootOperator;
 import com.example.calculator.input.SubtractionOperator;
 import com.example.calculator.input.Number;
@@ -24,27 +25,27 @@ public class InputProcessor implements Processor<LinkedList<BigDecimal>> {
     LinkedList<BigDecimal> stack = stackHistory.getLatest();
     stack.push(number.getNumber());
     stackHistory.add(stack);
-    return stack;
+    return stackHistory.getLatest();
   }
 
   @Override
   public LinkedList<BigDecimal> process(final AdditionOperator additionOperator) {
-    return operate(Operation.ADDITION);
+    return operate(additionOperator, Operation.ADDITION);
   }
 
   @Override
   public LinkedList<BigDecimal> process(final SubtractionOperator subtractionOperator) {
-    return operate(Operation.SUBTRACTION);
+    return operate(subtractionOperator, Operation.SUBTRACTION);
   }
 
   @Override
   public LinkedList<BigDecimal> process(final MultiplicationOperator multiplicationOperator) {
-    return operate(Operation.MULTIPLICATION);
+    return operate(multiplicationOperator, Operation.MULTIPLICATION);
   }
 
   @Override
   public LinkedList<BigDecimal> process(final DivisionOperator divisionOperator) {
-    return operate(Operation.DIVISION);
+    return operate(divisionOperator, Operation.DIVISION);
   }
 
   @Override
@@ -54,7 +55,8 @@ public class InputProcessor implements Processor<LinkedList<BigDecimal>> {
       throw new IllegalStateException("insufficient parameters");
     }
     stack.push(new BigDecimal(Math.sqrt(stack.pop().doubleValue())));
-    return stack;
+    stackHistory.add(stack);
+    return stackHistory.getLatest();
   }
 
   @Override
@@ -66,7 +68,7 @@ public class InputProcessor implements Processor<LinkedList<BigDecimal>> {
   public LinkedList<BigDecimal> process(final ClearOperator clearOperator) {
     LinkedList<BigDecimal> clearStack = new LinkedList<>();
     stackHistory.add(clearStack);
-    return clearStack;
+    return stackHistory.getLatest();
   }
 
   enum Operation {
@@ -76,11 +78,13 @@ public class InputProcessor implements Processor<LinkedList<BigDecimal>> {
     DIVISION
   }
 
-  private LinkedList<BigDecimal> operate(Operation operation) {
+  private LinkedList<BigDecimal> operate(ParsedInput operator, Operation operation) {
     LinkedList<BigDecimal> stack = stackHistory.getLatest();
     if (stack.size() < 2) {
-      throw new IllegalStateException("insufficient parameters");
+      throw new IllegalStateException(
+          "operator <" + operator.getName() + "> (position: " + operator.getPosition() + "): insufficient parameters");
     }
+
     switch (operation) {
       case ADDITION:
         stack.push(stack.pop().add(stack.pop()));
@@ -99,6 +103,6 @@ public class InputProcessor implements Processor<LinkedList<BigDecimal>> {
     }
 
     stackHistory.add(stack);
-    return stack;
+    return stackHistory.getLatest();
   }
 }
