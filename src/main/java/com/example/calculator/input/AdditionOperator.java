@@ -5,7 +5,7 @@ import com.example.calculator.process.InputProcessor;
 import java.math.BigDecimal;
 import java.util.LinkedList;
 
-public class PlusOperator implements ParsedInput {
+public class AdditionOperator implements ParsedInput {
   @Override
   public LinkedList<BigDecimal> accept(final InputProcessor processor) {
     return processor.process(this);

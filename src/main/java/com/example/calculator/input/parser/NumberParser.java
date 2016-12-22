@@ -9,6 +9,9 @@ import java.util.Optional;
 public class NumberParser implements InputParser<Number> {
   @Override
   public Optional<Number> parse(final String input) {
-    return Try.of(() -> new Number(new BigDecimal(input))).toEither().toJavaOptional();
+    return Try.of(() ->
+        new Number(new BigDecimal(input)))
+        .toEither()
+        .toJavaOptional();
   }
 }
