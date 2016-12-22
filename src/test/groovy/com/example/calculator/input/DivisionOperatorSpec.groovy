@@ -6,7 +6,6 @@ import spock.lang.Specification
 class DivisionOperatorSpec extends Specification {
 
   DivisionOperator divisionOperator
-  InputProcessor processor
 
   def setup() {
     divisionOperator = new DivisionOperator()
@@ -16,8 +15,8 @@ class DivisionOperatorSpec extends Specification {
   }
 
   def "test accept processor"() {
+    InputProcessor processor = Mock()
     when:
-    processor = Mock()
     processor.process(divisionOperator) >> returnValue
     def result = divisionOperator.accept(processor)
 

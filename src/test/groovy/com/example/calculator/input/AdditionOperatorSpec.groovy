@@ -6,7 +6,6 @@ import spock.lang.Specification
 class AdditionOperatorSpec extends Specification {
 
   AdditionOperator additionOperator
-  InputProcessor processor
 
   def setup() {
     additionOperator = new AdditionOperator()
@@ -16,8 +15,8 @@ class AdditionOperatorSpec extends Specification {
   }
 
   def "test accept processor"() {
+    InputProcessor processor = Mock()
     when:
-    processor = Mock()
     processor.process(additionOperator) >> returnValue
     def result = additionOperator.accept(processor)
 

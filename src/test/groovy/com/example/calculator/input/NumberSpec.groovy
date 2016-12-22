@@ -6,7 +6,6 @@ import spock.lang.Specification
 class NumberSpec extends Specification {
 
   Number number
-  InputProcessor processor
 
   def setup() {
     number = new Number(new BigDecimal(100))
@@ -16,8 +15,8 @@ class NumberSpec extends Specification {
   }
 
   def "test accept processor"() {
+    InputProcessor processor = Mock()
     when:
-    processor = Mock()
     processor.process(number) >> returnValue
     def result = number.accept(processor)
 

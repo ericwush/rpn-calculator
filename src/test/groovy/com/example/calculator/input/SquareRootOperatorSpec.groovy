@@ -6,7 +6,6 @@ import spock.lang.Specification
 class SquareRootOperatorSpec extends Specification {
 
   SquareRootOperator squareRootOperator
-  InputProcessor processor
 
   def setup() {
     squareRootOperator = new SquareRootOperator()
@@ -16,8 +15,8 @@ class SquareRootOperatorSpec extends Specification {
   }
 
   def "test accept processor"() {
+    InputProcessor processor = Mock()
     when:
-    processor = Mock()
     processor.process(squareRootOperator) >> returnValue
     def result = squareRootOperator.accept(processor)
 

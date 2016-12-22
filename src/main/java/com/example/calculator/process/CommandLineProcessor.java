@@ -19,6 +19,9 @@ public class CommandLineProcessor {
   }
 
   public Try<LinkedList<BigDecimal>> process(final List<Optional<ParsedInput>> parsedInputs) {
+    if (parsedInputs == null || parsedInputs.isEmpty()) {
+      return Try.failure(new IllegalStateException("Unexpected empty inputs"));
+    }
     return Try.of(() ->
         javaslang.collection.List.ofAll(parsedInputs)
             .zipWithIndex()

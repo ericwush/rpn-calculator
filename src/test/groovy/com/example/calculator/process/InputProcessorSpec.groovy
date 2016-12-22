@@ -21,7 +21,6 @@ class InputProcessorSpec extends Specification {
   }
 
   def cleanup() {
-    stackHistory.add(new LinkedList<BigDecimal>())
   }
 
   def "test process number"() {

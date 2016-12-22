@@ -6,7 +6,6 @@ import spock.lang.Specification
 class ClearOperatorSpec extends Specification {
 
   ClearOperator clearOperator
-  InputProcessor processor
 
   def setup() {
     clearOperator = new ClearOperator()
@@ -16,8 +15,8 @@ class ClearOperatorSpec extends Specification {
   }
 
   def "test accept processor"() {
+    InputProcessor processor = Mock()
     when:
-    processor = Mock()
     processor.process(clearOperator) >> returnValue
     def result = clearOperator.accept(processor)
 

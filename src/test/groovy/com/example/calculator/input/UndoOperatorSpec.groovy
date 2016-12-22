@@ -6,7 +6,6 @@ import spock.lang.Specification
 class UndoOperatorSpec extends Specification {
 
   UndoOperator undoOperator
-  InputProcessor processor
 
   def setup() {
     undoOperator = new UndoOperator()
@@ -16,8 +15,8 @@ class UndoOperatorSpec extends Specification {
   }
 
   def "test accept processor"() {
+    InputProcessor processor = Mock()
     when:
-    processor = Mock()
     processor.process(undoOperator) >> returnValue
     def result = undoOperator.accept(processor)
 

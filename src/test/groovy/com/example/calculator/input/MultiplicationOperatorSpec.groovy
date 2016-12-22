@@ -6,7 +6,6 @@ import spock.lang.Specification
 class MultiplicationOperatorSpec extends Specification {
 
   MultiplicationOperator multiplicationOperator
-  InputProcessor processor
 
   def setup() {
     multiplicationOperator = new MultiplicationOperator()
@@ -16,8 +15,8 @@ class MultiplicationOperatorSpec extends Specification {
   }
 
   def "test accept processor"() {
+    InputProcessor processor = Mock()
     when:
-    processor = Mock()
     processor.process(multiplicationOperator) >> returnValue
     def result = multiplicationOperator.accept(processor)
 
