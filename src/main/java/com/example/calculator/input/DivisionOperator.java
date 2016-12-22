@@ -28,4 +28,5 @@ public class DivisionOperator implements ParsedInput {
   public String getName() {
     return "/";
   }
+
 }

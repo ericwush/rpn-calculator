@@ -28,4 +28,5 @@ public class SquareRootOperator implements ParsedInput {
   public String getName() {
     return "sqrt";
   }
+
 }

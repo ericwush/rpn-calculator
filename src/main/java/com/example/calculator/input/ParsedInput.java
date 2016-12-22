@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.util.LinkedList;
 
 public interface ParsedInput {
+
   LinkedList<BigDecimal> accept(InputProcessor processor);
 
   void setPosition(int position);
@@ -13,4 +14,5 @@ public interface ParsedInput {
   int getPosition();
 
   String getName();
+
 }

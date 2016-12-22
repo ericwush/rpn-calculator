@@ -28,4 +28,5 @@ public class SubtractionOperator implements ParsedInput {
   public String getName() {
     return "-";
   }
+
 }

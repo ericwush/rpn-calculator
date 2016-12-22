@@ -28,4 +28,5 @@ public class AdditionOperator implements ParsedInput {
   public String getName() {
     return "+";
   }
+
 }

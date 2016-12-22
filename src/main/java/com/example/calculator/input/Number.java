@@ -37,4 +37,5 @@ public class Number implements ParsedInput {
   public BigDecimal getNumber() {
     return number;
   }
+
 }

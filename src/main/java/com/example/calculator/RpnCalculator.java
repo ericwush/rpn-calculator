@@ -1,12 +1,12 @@
 package com.example.calculator;
 
-import com.example.calculator.input.parser.SquareRootOperatorParser;
 import com.example.calculator.input.parser.AdditionOperatorParser;
 import com.example.calculator.input.parser.ClearOperatorParser;
 import com.example.calculator.input.parser.CommandLineParser;
 import com.example.calculator.input.parser.DivisionOperatorParser;
 import com.example.calculator.input.parser.MultiplicationOperatorParser;
 import com.example.calculator.input.parser.NumberParser;
+import com.example.calculator.input.parser.SquareRootOperatorParser;
 import com.example.calculator.input.parser.SubtractionOperatorParser;
 import com.example.calculator.input.parser.UndoOperatorParser;
 import com.example.calculator.process.CommandLineExecutor;

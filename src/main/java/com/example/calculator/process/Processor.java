@@ -26,5 +26,6 @@ public interface Processor<T> {
   T process(UndoOperator undoOperator);
 
   T process(ClearOperator clearOperator);
+
 }
 

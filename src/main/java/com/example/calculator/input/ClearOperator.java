@@ -28,4 +28,5 @@ public class ClearOperator implements ParsedInput {
   public String getName() {
     return "clear";
   }
+
 }

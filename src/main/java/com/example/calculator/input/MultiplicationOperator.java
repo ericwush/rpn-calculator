@@ -28,4 +28,5 @@ public class MultiplicationOperator implements ParsedInput {
   public String getName() {
     return "*";
   }
+
 }
