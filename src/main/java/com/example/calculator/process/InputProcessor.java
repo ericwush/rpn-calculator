@@ -92,7 +92,9 @@ public class InputProcessor implements Processor<LinkedList<BigDecimal>> {
         stack.push(stack.pop().add(stack.pop()));
         break;
       case SUBTRACTION:
-        stack.push(stack.pop().subtract(stack.pop()));
+        BigDecimal subtractor = stack.pop();
+        BigDecimal subtrahend = stack.pop();
+        stack.push(subtrahend.subtract(subtractor));
         break;
       case MULTIPLICATION:
         stack.push(stack.pop().multiply(stack.pop()));

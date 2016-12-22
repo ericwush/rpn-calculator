@@ -66,7 +66,7 @@ class InputProcessorSpec extends Specification {
 
   def "test SubtractionOperator"() {
     when:
-    stackHistory.add(new LinkedList<BigDecimal>(Arrays.asList(new BigDecimal(5), new BigDecimal(2))))
+    stackHistory.add(new LinkedList<BigDecimal>(Arrays.asList(new BigDecimal(2), new BigDecimal(5))))
 
     then:
     inputProcessor.process(new SubtractionOperator()) == new LinkedList<BigDecimal>(Arrays.asList(new BigDecimal(3)))

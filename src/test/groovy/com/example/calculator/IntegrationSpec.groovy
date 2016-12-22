@@ -54,7 +54,7 @@ class IntegrationSpec extends Specification {
 
     where:
     input << ["1 2 +", "3 1 -", "4 5 *", "9 3 /", "9 sqrt", "clear"]
-    content << ["stack: 3", "stack: -2", "stack: 20", "stack: 3", "stack: 3", "stack: "]
+    content << ["stack: 3", "stack: 2", "stack: 20", "stack: 3", "stack: 3", "stack: "]
   }
 
 }
