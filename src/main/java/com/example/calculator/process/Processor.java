@@ -10,12 +10,21 @@ import com.example.calculator.input.AdditionOperator;
 import com.example.calculator.input.UndoOperator;
 
 public interface Processor<T> {
+
   T process(Number number);
+
   T process(AdditionOperator additionOperator);
+
   T process(SubtractionOperator subtractionOperator);
+
   T process(MultiplicationOperator multiplicationOperator);
+
   T process(DivisionOperator divisionOperator);
+
   T process(SquareRootOperator squareRootOperator);
+
   T process(UndoOperator undoOperator);
+
   T process(ClearOperator clearOperator);
 }
+

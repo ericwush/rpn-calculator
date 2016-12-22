@@ -13,4 +13,5 @@ public class CommandLineListener extends Observable implements Runnable {
       notifyObservers(commandLineString);
     }
   }
+
 }

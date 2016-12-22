@@ -52,7 +52,9 @@ public class InputProcessor implements Processor<LinkedList<BigDecimal>> {
   public LinkedList<BigDecimal> process(final SquareRootOperator squareRootOperator) {
     LinkedList<BigDecimal> stack = stackHistory.getLatest();
     if (stack.size() < 1) {
-      throw new IllegalStateException("insufficient parameters");
+      throw new IllegalStateException(
+          "operator <" + squareRootOperator.getName()
+              + "> (position: " + squareRootOperator.getPosition() + "): insufficient parameters");
     }
     stack.push(new BigDecimal(Math.sqrt(stack.pop().doubleValue())));
     stackHistory.add(stack);
@@ -105,4 +107,5 @@ public class InputProcessor implements Processor<LinkedList<BigDecimal>> {
     stackHistory.add(stack);
     return stackHistory.getLatest();
   }
+
 }

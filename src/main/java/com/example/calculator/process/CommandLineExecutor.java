@@ -33,4 +33,5 @@ public class CommandLineExecutor implements Observer {
     Either<Throwable, LinkedList<BigDecimal>> processResult = processor.process(parsedInputs).toEither();
     viewer.printResult(processResult);
   }
+
 }

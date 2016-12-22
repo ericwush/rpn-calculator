@@ -32,4 +32,5 @@ public class ResultViewer {
     System.out.println(e.getMessage());
     this.printStack(StackHistory.getInstance().getLatest());
   }
+
 }

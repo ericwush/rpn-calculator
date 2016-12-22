@@ -5,7 +5,9 @@ import java.util.LinkedList;
 import java.util.Optional;
 
 public class StackHistory {
+
   private static StackHistory instance = null;
+
   private LinkedList<LinkedList<BigDecimal>> stacks = new LinkedList<>();
 
   private StackHistory() {
@@ -35,4 +37,5 @@ public class StackHistory {
     stacks.poll();
     return this.getLatest();
   }
+
 }

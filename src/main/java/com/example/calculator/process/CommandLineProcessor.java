@@ -38,4 +38,5 @@ public class CommandLineProcessor {
       return parsedInput.accept(processor);
     };
   }
+
 }
