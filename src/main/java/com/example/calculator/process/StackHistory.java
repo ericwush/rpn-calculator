@@ -1,24 +1,18 @@
 package com.example.calculator.process;
 
 import java.math.BigDecimal;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Optional;
 
-public class StackHistory {
+import static java.util.stream.Collectors.joining;
 
-  private static StackHistory instance = null;
+public class StackHistory {
 
   private LinkedList<LinkedList<BigDecimal>> stacks = new LinkedList<>();
 
-  private StackHistory() {
+  public StackHistory() {
     stacks = new LinkedList<>();
-  }
-
-  public static synchronized StackHistory getInstance() {
-    if (instance == null) {
-      instance = new StackHistory();
-    }
-    return instance;
   }
 
   public LinkedList<BigDecimal> getLatest() {
@@ -36,6 +30,16 @@ public class StackHistory {
   public LinkedList<BigDecimal> popAndGetLatest() {
     stacks.poll();
     return this.getLatest();
+  }
+
+  public String getStackContent(LinkedList<BigDecimal> stack) {
+    Collections.reverse(stack);
+    return "stack: " +
+        stack.stream()
+            .map(d -> d.setScale(10, BigDecimal.ROUND_HALF_UP))
+            .map(BigDecimal::stripTrailingZeros)
+            .map(BigDecimal::toPlainString)
+            .collect(joining(" "));
   }
 
 }

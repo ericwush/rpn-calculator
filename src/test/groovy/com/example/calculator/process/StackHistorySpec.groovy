@@ -7,7 +7,7 @@ class StackHistorySpec extends Specification {
   StackHistory stackHistory
 
   def setup() {
-    stackHistory = StackHistory.getInstance()
+    stackHistory = new StackHistory()
   }
 
   def cleanup() {
@@ -35,4 +35,16 @@ class StackHistorySpec extends Specification {
     then:
     stackHistory.popAndGetLatest() == new LinkedList<BigDecimal>(Arrays.asList(new BigDecimal(1)))
   }
+
+  def "test get stack content"() {
+    expect:
+    stackHistory.getStackContent(stack) == result
+
+    where:
+    stack << [new LinkedList<BigDecimal>(Arrays.asList(new BigDecimal(1), new BigDecimal(2))),
+              new LinkedList<BigDecimal>(Arrays.asList(new BigDecimal(1), new BigDecimal("2.00000"))),
+              new LinkedList<BigDecimal>(Arrays.asList(new BigDecimal(1), new BigDecimal("2.12345678912345")))]
+    result << ["stack: 2 1", "stack: 2 1", "stack: 2.1234567891 1"]
+  }
+
 }

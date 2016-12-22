@@ -19,6 +19,7 @@ import com.example.calculator.process.StackHistory;
 public class RpnCalculator {
 
   public static void main(String[] args) {
+    StackHistory stackHistory = new StackHistory();
     CommandLineParser parser = new CommandLineParser(
         new NumberParser(),
         new AdditionOperatorParser(),
@@ -28,9 +29,9 @@ public class RpnCalculator {
         new SquareRootOperatorParser(),
         new UndoOperatorParser(),
         new ClearOperatorParser());
-    CommandLineProcessor commandLineProcessor = new CommandLineProcessor(new InputProcessor(StackHistory.getInstance()));
+    CommandLineProcessor commandLineProcessor = new CommandLineProcessor(new InputProcessor(stackHistory));
     CommandLineListener commandLineListener = new CommandLineListener();
-    commandLineListener.addObserver(new CommandLineExecutor(parser, commandLineProcessor, new ResultViewer()));
+    commandLineListener.addObserver(new CommandLineExecutor(parser, commandLineProcessor, new ResultViewer(stackHistory)));
     new Thread(commandLineListener).start();
   }
 

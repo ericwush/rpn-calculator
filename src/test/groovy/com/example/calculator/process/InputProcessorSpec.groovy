@@ -1,6 +1,13 @@
 package com.example.calculator.process
 
-import com.example.calculator.input.*
+import com.example.calculator.input.AdditionOperator
+import com.example.calculator.input.ClearOperator
+import com.example.calculator.input.DivisionOperator
+import com.example.calculator.input.MultiplicationOperator
+import com.example.calculator.input.Number
+import com.example.calculator.input.SquareRootOperator
+import com.example.calculator.input.SubtractionOperator
+import com.example.calculator.input.UndoOperator
 import spock.lang.Specification
 
 class InputProcessorSpec extends Specification {
@@ -9,7 +16,7 @@ class InputProcessorSpec extends Specification {
   StackHistory stackHistory
 
   def setup() {
-    stackHistory = StackHistory.getInstance()
+    stackHistory = new StackHistory()
     inputProcessor = new InputProcessor(stackHistory)
   }
 
