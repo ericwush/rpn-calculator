@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.util.LinkedList;
 
 public class ClearOperator implements ParsedInput {
+
   private int position;
 
   @Override
