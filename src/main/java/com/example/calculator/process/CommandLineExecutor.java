@@ -14,6 +14,9 @@ import java.util.Optional;
 
 import static java.util.stream.Collectors.toList;
 
+/**
+ * I receive the command line inputs which will be parsed and processed and I also display the result.
+ */
 public class CommandLineExecutor implements Observer {
 
   private final CommandLineParser parser;

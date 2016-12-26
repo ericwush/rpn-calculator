@@ -13,6 +13,9 @@ import com.example.calculator.input.UndoOperator;
 import java.math.BigDecimal;
 import java.util.LinkedList;
 
+/**
+ * I am responsible for processing all types of valid parsed input.
+ */
 public class InputProcessor implements Processor<LinkedList<BigDecimal>> {
   private final StackHistory stackHistory;
 

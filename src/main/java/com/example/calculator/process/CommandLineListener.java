@@ -3,6 +3,9 @@ package com.example.calculator.process;
 import java.util.Observable;
 import java.util.Scanner;
 
+/**
+ * I listen to the command line and notify on input.
+ */
 public class CommandLineListener extends Observable implements Runnable {
 
   @Override

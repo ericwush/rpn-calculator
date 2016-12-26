@@ -10,6 +10,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
+/**
+ * I am responsible for processing the command line inputs. <br>
+ * Inputs will be validated before {@link InputProcessor} is delegated to process valid parsed inputs.
+ */
 public class CommandLineProcessor {
 
   private InputProcessor processor;

@@ -5,6 +5,9 @@ import javaslang.control.Either;
 import java.math.BigDecimal;
 import java.util.LinkedList;
 
+/**
+ * I display the latest stack content and error if there is any.
+ */
 public class ResultViewer {
 
   private final StackHistory stackHistory;

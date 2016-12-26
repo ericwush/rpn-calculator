@@ -28,4 +28,5 @@ java -jar <path-to>/rpn-calculator.jar
 
 ### Assumptions
 - Numbers accepted are formatted as plain decimal strings (ie. no engineering formatting)
-- First leading spaces followed by valid input are trimmed from the command line
+- First leading spaces followed by valid input are trimmed from the command line as well as trailing spaces
+- At most 10 decimal places are displayed, ROUND_HALF_UP strategy will be used where applicable
